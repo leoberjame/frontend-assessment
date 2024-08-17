@@ -1,0 +1,82 @@
+.landing__bg {
+    background-color: #eee;
+    background: url(assets/images/LandingPageBackground.jpg) no-repeat center;
+    background-size: cover;
+    height: 100dvh;
+    overflow: hidden auto;
+
+    .overlay__blur {
+        backdrop-filter: blur(6px);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2rem;
+        height: 100vh;
+
+        .card {
+            backdrop-filter: blur(5px);
+            min-width: 35vh;
+            height: min(45vh, 505px);
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.051),
+                0px 0px 7.2px rgba(0, 0, 0, 0.073), 0px 0px 13.6px rgba(0, 0, 0, 0.09),
+                0px 0px 24.3px rgba(0, 0, 0, 0.107), 0px 0px 45.5px rgba(0, 0, 0, 0.129),
+                0px 0px 109px rgba(0, 0, 0, 0.18);
+
+            &.card__0 {
+                background-color: rgba(0, 166, 255, 0.3);
+            }
+
+            &.card__1 {
+                background-color: rgba(255, 59, 0, 0.37);
+            }
+
+            .title {
+                color: #443763;
+                font-size: 36px;
+                font-size: clamp(36px, 8vw, 56px);
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: all 0.2s ease;
+                -webkit-user-select: none;
+                /* Safari */
+                -ms-user-select: none;
+                /* IE 10 and IE 11 */
+                user-select: none;
+                /* Standard syntax */
+            }
+
+            .glare__container {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+
+                .glare {
+                    position: absolute;
+                    left: 100%;
+                    bottom: -50%;
+                    width: 150%;
+                    height: 150%;
+                    background: rgb(255, 255, 255);
+                    background: linear-gradient(90deg,
+                            rgba(255, 255, 255, 0.1) 0%,
+                            rgba(255, 255, 255, 0) 20%);
+                    transform: rotateZ(35deg);
+                    pointer-events: none;
+                    filter: blur(4px);
+                }
+            }
+        }
+    }
+}

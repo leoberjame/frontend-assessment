@@ -1,5 +1,5 @@
 <template>
-<div> Index Page </div>
+  <LandingPage />
 </template>
 
 <script>
