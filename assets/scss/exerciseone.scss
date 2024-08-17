@@ -1,0 +1,145 @@
+.header {
+    &__container {
+        height: 600px;
+        background-color: #CCCCCC;
+    }
+
+    &__background {
+        background: url('https://via.placeholder.com/600x600') no-repeat center;
+        background-size: cover;
+        height: 100%;
+
+        .content {
+            &__container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                color: #fff;
+                text-align: center;
+                padding: 0 0.8rem;
+
+                h1 {
+                    font-size: clamp(32px, 12vw, 4.5rem);
+                }
+
+                p {
+                    font-size: clamp(24px, 6vw, 2rem);
+                }
+            }
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 0.4);
+    }
+
+
+
+    @media screen and (min-width: 768px) {
+        &__container {
+            height: 650px;
+        }
+
+        &__background {
+            background: url('https://via.placeholder.com/1920x650') no-repeat center;
+            background-size: max(100%, 300%);
+        }
+    }
+}
+
+.list {
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.3rem;
+
+        padding: 1rem;
+
+        @media screen and (min-width: 600px) {
+            grid-template-columns: repeat(auto-fit, 450px);
+            padding: 3rem;
+        }
+
+        .custom {
+            &__card {
+                width: 100%;
+                height: 100%;
+                gap: 1rem;
+                transition: transform 0.2s;
+
+                img {
+                    width: 100%;
+                    border-radius: 5px;
+                    background-color: #CCCCCC;
+
+                    @media screen and (min-width: 600px) {
+                        width: 400px;
+                        height: 300px;
+                    }
+                }
+
+                p {
+                    font-size: clamp(20px, 6vw, 1rem);
+                }
+
+                .custom {
+                    &__btn {
+                        color: #333333;
+                        border: #333333 2.5px solid;
+                        font-weight: bold;
+                        line-height: 1.6;
+                        border-radius: 50rem;
+                        width: 150px;
+
+                        // start simple button animation
+                        position: relative;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        cursor: pointer;
+                        outline: none;
+                        overflow: hidden;
+
+                        &::before {
+                            --size: 0;
+                            content: '';
+                            position: absolute;
+                            left: var(--x);
+                            top: var(--y);
+                            width: var(--size);
+                            height: var(--size);
+                            -webkit-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                            transition: width .2s ease, height .2s ease;
+                            z-index: auto;
+                        }
+
+                        &:hover {
+                            background: #f72359 !important;
+                            border-color: #f72359 !important;
+                            color: white !important;
+
+
+                            &::before {
+                                --size: 400px;
+                            }
+                        }
+
+                        // end simple button animation
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-10px);
+                }
+
+            }
+        }
+    }
+}
