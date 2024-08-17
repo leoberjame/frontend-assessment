@@ -6,7 +6,7 @@
       <img
         :src="`${card.img}`"
         @load="onError()"
-        :class="[`card-img-top`, { skeleton: imgLoadingState }]"
+        :class="[`card-img-top`, { skeleton: isImgLoading }]"
         alt="card img"
         slot="card-img"
       />
@@ -47,16 +47,16 @@ export default {
           btnTxt: 'read more',
         },
       ],
-      imgLoadingState: true,
+      isImgLoading: true,
       hasImgError: false,
     }
   },
   methods: {
     onError() {
-      this.imgLoadingState = true
+      this.isImgLoading = true
       this.hasImgError = !this.hasImgError
       setTimeout(() => {
-        this.imgLoadingState = false
+        this.isImgLoading = false
       }, 400)
     },
     onMouseHover(e) {
